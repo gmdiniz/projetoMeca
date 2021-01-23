@@ -1,7 +1,7 @@
 meca_app.controller('LoginController', function ($scope, $http, $location, UserModel) {
     $scope.login = function () {
         var request = $http({
-            url: 'http://localhost/projetoForum/public/server/login.php',
+            url: 'http://localhost/projetoMeca/public/server/login.php',
             method: "post",
             data: {
                 email: $scope.email,

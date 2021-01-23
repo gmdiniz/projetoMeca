@@ -5,7 +5,7 @@ meca_app.controller('RegisterController', function ($scope, $http, $location) {
 
         var request =  $http({
             method: "POST",
-            url: "http://localhost/projetoForum/public/server/register.php",
+            url: "http://localhost/projetoMeca/public/server/register.php",
             data: $scope.registerData,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         })

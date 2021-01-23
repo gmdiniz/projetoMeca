@@ -4,7 +4,7 @@ meca_app.controller('HomeController', function ($scope, $http, UserModel, $locat
 
     $scope.callPosts = function() {
         var request = $http({
-            url: 'http://localhost/projetoForum/public/server/home.php',
+            url: 'http://localhost/projetoMeca/public/server/home.php',
             method: "post",
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         });
