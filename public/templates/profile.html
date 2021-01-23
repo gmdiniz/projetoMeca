@@ -1,0 +1,67 @@
+</html><html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu perfil</title>
+</head>
+<body>
+    <div class="body">
+        <div class="profile-header">
+            <div class="logo" ng-click="home()">
+                <i class="fa fa-stack-overflow"></i>
+            </div>
+            <div class="search">
+                <form onsubmit="event.preventDefault();" role="search">
+                    <input id="search" type="text" placeholder="Buscar novos posts" autofocus required />
+                    <button type="submit"><i class="fa fa-search"></i></button>    
+                </form>
+            </div>
+            <div class="navigation">
+                <div class="nav-buttons" ng-hide="loggedUser">
+                </div>
+                <div class="nav-user">
+                    <div class="button-item">
+                        <button ng-click="logout()" class="default-button">
+                            <i class="fa fa-sign-out" ng-click=""></i>
+                            Sair
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="profile-content">
+
+            <div class="menu">
+                <ul>
+                    <li ng-repeat="item in menu"><a href="#{{item.link}}">{{item.text}}</a></li>
+                </ul>   
+            </div>
+            
+            <div class="profile-container">
+                <div class="profile-content">
+                    <div class="meu-perfil" id="meu-perfil">
+                        <h1>Meu perfil</h1>
+                    </div>
+    
+                    <div class="atividade" style="display: none;" id="atividade">
+                        <h1>Atividade</h1>
+                    </div>
+                </div>
+
+                <script>
+                $(document).ready(function(){
+                    $("a").click(function(event) {
+                        event.preventDefault();
+                        var href = $(this).attr('href');
+                        $('#meu-perfil, #atividade').hide();
+                        $(href).show();
+                    });
+
+                });
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

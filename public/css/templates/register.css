@@ -1,0 +1,43 @@
+.register_body {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    background-color: #C4C4C4;
+}
+
+.register_container {
+    align-self: center;
+    width: 35%;
+    height: 100%;
+    display: flex;
+    place-content: center;
+    background-color: #E7E7E7;
+    box-shadow: 0 2px 2px #E7E7E7;
+    flex-direction: column;
+}
+
+.register_form {
+    align-self: center;
+    width: 60%;
+    max-width: 100%;
+}
+
+.google_integration {
+    margin: 48px 0;
+}
+
+.register_footer {
+    align-self: center;
+    position: absolute;
+    display: flex;
+    bottom: 20px;
+}
+
+.register_item { 
+    margin: 0 0 32px 0;
+    flex-wrap: wrap;
+}
+
+.register_item input{
+    background: #C4C4C4;
+}

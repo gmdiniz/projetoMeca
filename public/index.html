@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html style="width: 100vw; height: 100vh;" lang="pt-br" ng-app="forum">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fórum</title>
+        <base href="/projetoForum/public/">
+        <link rel="stylesheet" href="css/base/reset.css">
+        <link rel="stylesheet" href="css/base/fonts.css">
+        <link rel="stylesheet" href="css/base/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        
+        <link rel="stylesheet" href="css/templates/404.css">
+        <link rel="stylesheet" href="css/templates/home.css">
+        <link rel="stylesheet" href="css/templates/login.css">
+        <link rel="stylesheet" href="css/templates/profile.css">
+        <link rel="stylesheet" href="css/templates/register.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    
+    <body>
+        <div id="ng-view" ng-view></div> 
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+        <script src="js/angular-route.min.js"></script> 
+        <script src="js/angular-resource.min.js"></script> 
+        <script src="js/forum_app.js"></script>
+
+        <script src="js/controllers/ForumController.js"></script>
+        <script src="js/controllers/HomeController.js"></script>
+        <script src="js/controllers/LoginController.js"></script>
+        <script src="js/controllers/ProfileController.js"></script>
+        <script src="js/controllers/RegisterController.js"></script>
+
+        <script src="js/models/userModel.js"></script>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo ao Fórum</title>
+</head>
+<body>
+    <div class="body">
+        <div class="profile-header">
+            <div class="logo">
+                <i class="fa fa-stack-car"></i>
+            </div>
+            <div class="navigation">
+                <div class="nav-buttons" ng-hide="loggedUser">
+                    <div class="button-item login-button">
+                        <button ng-click="login()" class="default-button">
+                            <i class="fa fa-user"></i>
+                            Entrar
+                        </button>
+                    </div>
+                    <div class="button-item">
+                        <button ng-click="cadastro()" class="default-button">
+                            <i class="fa fa-user-plus"></i>
+                            Registre-se
+                        </button>
+                    </div>
+                </div>
+                <div class="nav-user" ng-hide="!loggedUser">
+                    <div class="button-item">
+                        <button ng-click="meuPerfil()" class="default-button">
+                            <i class="fa fa-user"></i>
+                            Meu Perfil
+                        </button>
+                    </div>
+                    <div class="button-item">
+                        <button ng-click="logout()" class="default-button">
+                            <i class="fa fa-sign-out" ng-click=""></i>
+                            Sair
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastre-se no Fórum</title>
+    </head>
+
+    <body>
+        <div class="register_body">     
+            <div class="register_container">
+
+                <div class="register_form">
+
+                    
+                    <div class="google_integration">
+                        <button class="default-button"><i class="fa fa-google"></i>Cadastrar-se com Google</button>
+                    </div>
+
+                    <div class="register_item">
+                        <h2>Nome de Exibição</h2>
+                        <input required type="text" placeholder="Insira seu nome de usuario" name="nome" ng-model="registerData.nome" >
+                    </div>
+                    <div class="register_item">
+                        <h2 for="">E-mail</h2>
+                        <input required type="email" name="email" pattern="[^ @]*@[^ @]*" placeholder="Insira seu email" ng-model="registerData.email">
+                    </div>
+                    <div class="register_item">
+                        <h2 for="">Senha</h2>
+                        <input required type="password" placeholder="Insira sua senha" name="senha" ng-model="registerData.senha"> 
+                    </div>
+                    <div class="register_item">
+                        <button class="primary-button" ng-click = "register()" name= "register" type="submit">Cadastre-se</button> 
+                    </div>  
+                </div>
+
+                <div class="register_footer">
+                    <h3>Já tem uma conta?</h3>
+                    <a href="" ng-click="login()">Entrar</a>
+                </div>
+
+            </div>
+        </div>
+    </body>
+
+</html>

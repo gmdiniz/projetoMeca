@@ -1,0 +1,12 @@
+.profile-header {
+    display: flex;
+    min-height: 10%;
+    padding: 18px 0;
+    box-sizing: border-box;
+}
+
+.profile-content {
+    background-color: #DFDFDF;
+    display: flex;
+    height: 90%;
+}
