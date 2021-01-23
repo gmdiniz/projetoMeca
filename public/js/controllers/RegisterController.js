@@ -12,7 +12,7 @@ meca_app.controller('RegisterController', function ($scope, $http, $location) {
         request.then(function (result) {
             console.log(result);
         })
-        
+    
     };
 
     $scope.login = function () {

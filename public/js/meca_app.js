@@ -10,7 +10,7 @@ meca_app.config(function ($routeProvider, $locationProvider) {
         resolve: {
             deadResolve: function ($location, UserModel) {
                 UserModel.clearData();
-                location.path('/home');
+                $location.path('/home');
             }
         }
     })
@@ -40,6 +40,4 @@ meca_app.config(function ($routeProvider, $locationProvider) {
     .otherwise({ 
         templateUrl: 'templates/404.html',
     });
-
-    $locationProvider.html5Mode(true);
 });
