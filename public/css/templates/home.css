@@ -9,7 +9,6 @@
     min-height: 80px;
     padding: 18px 0;
     box-sizing: border-box;
-    
 }
 
 .logo {
@@ -71,7 +70,7 @@
 
 .carousel {
   overflow: hidden;
-  max-width: 1200px 920px;
+  max-width: 1400px 920px;
   position: relative;
   text-align-last: center;
   
@@ -85,7 +84,7 @@
 
 .carousel .carousel__item img {
   width: 100%;
-  max-width: 1300px;
+  max-width: 1600px;
   height: auto;
   
 }
@@ -130,3 +129,33 @@
     transform: opacity linear;
   }
 }
+
+.modal_container{
+  align-self: center;
+  width: 35%;
+  height: 100%;
+  display: flex;
+  place-content: center;
+  background-color:#284B63;
+  box-shadow: 0 2px 2px #284B63;
+  flex-direction: column;
+  padding-top: inherit;
+}
+
+.modal_form {
+  align-self: center;
+  width: 60%;
+  max-width: 100%;
+}
+
+.modal_item { 
+    margin: 0 0 32px 0;
+    flex-wrap: wrap;
+}
+
+.modal_item input{
+    background: #ffffff;
+}
+
+
+

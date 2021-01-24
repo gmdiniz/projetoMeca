@@ -13,7 +13,7 @@
             </div>
             <div class="navigation">
                 <div class="button-item login-button btplus">
-                        <button class="default-button plus">
+                        <button class="default-button plus" id="myBtn">
                             <i class="fa fa-plus"></i>
                             Novo chamado
                         </button>
@@ -50,13 +50,13 @@
         </div>
             <div class="carousel">
                 <div class="carousel__item carousel__item--visible">
-                    <img src="assets/images/img.jpg" />
+                    <img src="assets/images/img0.jpg" />
                 </div>
                 <div class="carousel__item">
-                    <img src="assets/images/img.jpg" />
+                    <img src="assets/images/img2.jpg" />
                 </div>
                 <div class="carousel__item">
-                    <img src="assets/images/img.jpg" />
+                    <img src="assets/images/img2.jpg" />
                 </div>
 
                 <div class="carousel__actions">
@@ -65,10 +65,60 @@
                 </div>
             </div>
             <script src="js/carousel.js"></script>
+            
             <footer>
                 <h1>Endereço, 67 • São José dos Campos - São Paulo • CEP: 12323-323<br>
                 <a href="mailto:hege@example.com">email@example.com</a></h1>
             </footer>
+            
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                   
+                    <p><i class="fa fa-plus plusIc"></i>Novo chamado</p>
+
+                    <div class="modal_container">
+                        <div class="modal_item">
+                            <h2 class="paddingM">Tipo</h2>
+                            <input required type="text" placeholder="Insira o tipo da manutenção" name="tipo" ng-model="registerData.nome" >
+                        </div>
+
+                        <div class="modal_item">
+                            <h2 class="paddingM">Veículo</h2>
+                            <select name="cars" id="cars">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="mercedes">Mercedes</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                        </div>
+                        
+                        <div class="modal_item">
+                            <h2 class="paddingM">Valor</h2>
+                            <input required type="text" placeholder="Insira o valor desejado de manutenção" name="valor" ng-model="registerData.cpf" >
+                        </div>
+
+                        <div class="modal_item">
+                            <h2 for="" class="paddingM">Descrição</h2>
+                            <input required type="text" name="descricao" placeholder="Insira a descricao do serviço" ng-model="registerData.email" cols="40" rows="5">
+                        </div>
+
+                        <div class="modal_item">
+                            <button class="primary-button" ng-click = "register()" name= "register" type="submit">Pronto</button> 
+                        </div>  
+                    </div>
+                </div>
+
+                <div class="register_footer">
+                    <h3>Já tem uma conta?</h3>
+                    <a href="" ng-click="login()">Entrar</a>
+                </div>
+
+         
+            </div>
+            <script src="js/modal.js"></script>
+
     </div>
 </body>
 </html>
