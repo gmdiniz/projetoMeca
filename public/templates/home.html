@@ -8,9 +8,16 @@
     <div class="body">
         <div class="profile-header">
             <div class="logo">
-                <i class="fa fa-stack-car"></i>
+                <i class="fa fa-car" aria-hidden="true"></i>
+                Car
             </div>
             <div class="navigation">
+            <div class="button-item login-button btplus">
+                        <button class="default-button plus">
+                            <i class="fa fa-plus"></i>
+                            Novo chamado
+                        </button>
+                    </div>
                 <div class="nav-buttons" ng-hide="loggedUser">
                     <div class="button-item login-button">
                         <button ng-click="login()" class="default-button">
@@ -41,6 +48,30 @@
                 </div>
             </div>
         </div>
+    <div class="carousel">
+      <div class="carousel__item carousel__item--visible">
+        <img src="assets/images/img.jpg" />
+      </div>
+      <div class="carousel__item">
+        <img src="assets/images/img.jpg" />
+      </div>
+      <div class="carousel__item">
+        <img src="assets/images/img.jpg" />
+      </div>
+
+      <div class="carousel__actions">
+        <button id="carousel__button--prev" aria-label="Previous slide"><</button>
+        <button id="carousel__button--next" aria-label="Next slide">></button>
+      </div>
+    </div>
+
+    <script src="js/carousel.js"></script>
+        <footer>
+            <p>Endereço, 67<br>
+                São José dos Campos - São Paulo<br>
+                CEP: 12323-323<br>
+                <a href="mailto:hege@example.com">hege@example.com</a></p>
+        </footer>
     </div>
 </body>
 </html>
