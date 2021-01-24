@@ -19,19 +19,21 @@
     }
 
     $_POST = $post;
-    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $emailOrCpf = mysqli_real_escape_string($con, $_POST['emailOrCpf']);
     $senha = mysqli_real_escape_string($con, $_POST['senha']);
-    $query = "SELECT * FROM usuario WHERE email='$email';";
+    $query = "SELECT * FROM usuario WHERE email='$emailOrCpf' or cpf='$emailOrCpf';";
     $result = mysqli_query($con, $query);
 
     if(mysqli_num_rows($result) > 0) {
         foreach($result as $row) {
             if(password_verify($senha, $row["senha"])) {
-                $_SESSION["name"] = $row["nome"];
-                $response['status'] = 'loggedin';
-                $response['user'] = $email;
                 $response['id'] = $row['id_usuario'];
-                $_SESSION['user'] = $email;
+                $response['created'] = $row['created'];
+                $response['email'] = $row['email'];
+                $response['username'] = $row['nome'];
+                $response['foto_perfil'] = $row['foto_perfil'];
+                $response['cpf'] = $row['cpf'];
+                $response['status'] = 'loggedin';
             } else {
                 $response = 'Wrong Password';
             }

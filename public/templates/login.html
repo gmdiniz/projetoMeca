@@ -15,14 +15,14 @@
                 <div class="login_form">
                     <div class="login_item">
                         <h2 for="" class="padding">E-mail ou CPF</h2>
-                        <input required type="email" name="email" ng-model="email" pattern="[^ @]*@[^ @]*" placeholder="Insira seu email cadastrado">
+                        <input required type="text" name="emailOrCpf" ng-model="loginData.emailOrCpf" placeholder="Insira seu email cadastrado ou cpf">
                     </div>
                     <div class="login_item">
                         <div class="remember">
                             <h2 for="" class="padding">Senha</h2>
                             <a href="">Esqueci minha senha</a>
                         </div>
-                        <input required type="password" placeholder="Insira sua senha cadastrada" name="senha" ng-model="senha">
+                        <input required type="password" placeholder="Insira sua senha cadastrada" name="senha" ng-model="loginData.senha">
                     </div>
                     <div class="login_item">
                         <button class="primary-button" ng-click="login()" type="submit">Entrar</button>

@@ -15,8 +15,12 @@ meca_app.controller('ProfileController', function ($scope, UserModel, $location)
             link: 'meu-perfil',
         },
         {
-            text: 'Atividades',
-            link: 'atividades',
+            text: 'Meus chamados',
+            link: 'meus-chamados',
         },
+        {
+            text: 'Meus veículos',
+            link: 'meus-veiculos'
+        }
     ];
 });

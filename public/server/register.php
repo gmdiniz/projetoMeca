@@ -15,35 +15,41 @@
 
     //validação de nome
     if(empty($_POST->nome)) {
-        $error[] = 'Name is Required';
+        $error[] = 'Nome é requerido';
     } else {
         $nome = $_POST->nome;
     }
+  
+    //validação de cpf
+    if(empty($_POST->cpf)) {
+        $error[] = 'Cpf precisa ser preenchido';
+    } else {
+        $cpf = $_POST->cpf;
+    }
 
-    //validação de nome
+    //validação de email
     if(empty($_POST->email)) {
-        $error[] = 'Email is Required';
+        $error[] = 'Email é requerido';
     } else {
         if(!filter_var($_POST->email, FILTER_VALIDATE_EMAIL)) {
-            $error[] = 'Invalid Email Format';
+            $error[] = 'Formato invalido';
         }
         else {
             $email = $_POST->email;
         }
     }
 
-    //validação de nome
+    //validação de senha
     if(empty($_POST->senha)) {
-        $error[] = 'Password is Required';
+        $error[] = 'Senha é requerida';
     } else {
         $senha = password_hash($_POST->senha, PASSWORD_DEFAULT);
     }
 
     //cadastro
     if(empty($error)) {
-        $query = "INSERT INTO `usuario` (nome, email, senha) VALUES ('$nome','$email','$senha')";
+        $query = "INSERT INTO `usuario` (nome, email, senha, cpf, created) VALUES ('$nome','$email','$senha','$cpf',NOW())";
         $statement = mysqli_query($con, $query);
-       
     }
 
     //exception de erro

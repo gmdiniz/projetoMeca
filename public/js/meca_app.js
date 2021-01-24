@@ -39,5 +39,6 @@ meca_app.config(function ($routeProvider, $locationProvider) {
     })
     .otherwise({ 
         templateUrl: 'templates/404.html',
+        controller: '404Controller'
     });
 });

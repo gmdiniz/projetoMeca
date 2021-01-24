@@ -1,11 +1,13 @@
 meca_app.controller('LoginController', function ($scope, $http, $location, UserModel) {
+    $scope.loginData = {};
+    
     $scope.login = function () {
         var request = $http({
             url: 'http://localhost/projetoMeca/public/server/login.php',
             method: "post",
             data: {
-                email: $scope.email,
-                senha: $scope.senha
+                emailOrCpf: $scope.loginData.emailOrCpf,
+                senha: $scope.loginData.senha
             },
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         });

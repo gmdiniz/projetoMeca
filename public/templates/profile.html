@@ -8,16 +8,17 @@
     <div class="body">
         <div class="profile-header">
             <div class="logo" ng-click="home()">
-                <i class="fa fa-stack-overflow"></i>
-            </div>
-            <div class="search">
-                <form onsubmit="event.preventDefault();" role="search">
-                    <input id="search" type="text" placeholder="Buscar novos posts" autofocus required />
-                    <button type="submit"><i class="fa fa-search"></i></button>    
-                </form>
+                <i class="fa fa-car"></i>
+                Auto-Manutenção
             </div>
             <div class="navigation">
                 <div class="nav-buttons" ng-hide="loggedUser">
+                </div>
+                <div class="button-item login-button btplus">
+                    <button class="default-button plus">
+                        <i class="fa fa-plus"></i>
+                        Novo chamado
+                    </button>
                 </div>
                 <div class="nav-user">
                     <div class="button-item">
@@ -34,18 +35,22 @@
 
             <div class="menu">
                 <ul>
-                    <li ng-repeat="item in menu"><a href="#{{item.link}}">{{item.text}}</a></li>
+                    <li class="list-item" ng-repeat="item in menu"><a href="#{{item.link}}">{{item.text}}</a></li>
                 </ul>   
             </div>
             
             <div class="profile-container">
                 <div class="profile-content">
-                    <div class="meu-perfil" id="meu-perfil">
+                    <div class="meu-perfil perfil-item" id="meu-perfil">
                         <h1>Meu perfil</h1>
                     </div>
-    
-                    <div class="atividade" style="display: none;" id="atividade">
-                        <h1>Atividade</h1>
+                    
+                    <div class="meus-chamados perfil-item" style="display: none;" id="meus-chamados">
+                        <h1>Meus chamados</h1>
+                    </div>
+                    
+                    <div class="meus-veiculos perfil-item" style="display: none;" id="meus-veiculos">
+                        <h1>Meus veículos</h1>
                     </div>
                 </div>
 
@@ -54,7 +59,8 @@
                     $("a").click(function(event) {
                         event.preventDefault();
                         var href = $(this).attr('href');
-                        $('#meu-perfil, #atividade').hide();
+                        console.log(href)
+                        $('#meu-perfil, #meus-chamados, #meus-veiculos').hide();
                         $(href).show();
                     });
 
