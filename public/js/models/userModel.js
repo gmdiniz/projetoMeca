@@ -1,22 +1,11 @@
 meca_app.service('UserModel', function () {
-    var useremail;
+    var userData = {};
     var loggedin = false;
-    var id;
 
-    this.setEmail = function (email) {
-        useremail = email;
+    this.getUserData = function () {
+        return userData;
     };
-    this.getEmail = function () {
-        return useremail;
-    };
-
-    this.setID = function (userID) {
-        id = userID;
-    };
-    this.getID = function () {
-        return id;
-    };
-
+    
     this.isUserLoggedIn = function () {
         if (!!localStorage.getItem('login')) {
             loggedin = true;
@@ -28,14 +17,16 @@ meca_app.service('UserModel', function () {
     };
   
     this.saveData = function (data) {
-        useremail = data.user;
-        id = data.id;
-        console.log(id);
-        loggedin = true;
-        localStorage.setItem('login', JSON.stringify({
-             useremail: useremail,
-             id: id
-           }))
+        userData = {
+            'email': data.email,
+            'id': data.id,
+            'created': data.created,
+            'username': data.username,
+            'cpf': data.cpf,
+            'loggedin': true,
+            'lastAccess': new Date(Date.now())
+        }
+        localStorage.setItem('login', JSON.stringify(userData))
     };
 
     this.clearData = function () {

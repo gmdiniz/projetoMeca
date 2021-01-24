@@ -4,6 +4,8 @@ meca_app.controller('ProfileController', function ($scope, UserModel, $location)
         UserModel.clearData();
         location.reload();
     }
+
+    $scope.user = UserModel.getUserData();
     
     $scope.home = function () {
         $location.path('/home');  

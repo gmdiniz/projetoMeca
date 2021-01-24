@@ -31,7 +31,6 @@
                 $response['created'] = $row['created'];
                 $response['email'] = $row['email'];
                 $response['username'] = $row['nome'];
-                $response['foto_perfil'] = $row['foto_perfil'];
                 $response['cpf'] = $row['cpf'];
                 $response['status'] = 'loggedin';
             } else {

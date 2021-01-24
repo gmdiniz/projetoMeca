@@ -20,6 +20,12 @@
                         Novo chamado
                     </button>
                 </div>
+                <div class="button-item login-button btplus">
+                    <button class="default-button plus">
+                        <i class="fa fa-plus"></i>
+                        Cadastrar novo veículo
+                    </button>
+                </div>
                 <div class="nav-user">
                     <div class="button-item">
                         <button ng-click="logout()" class="default-button">
@@ -42,7 +48,29 @@
             <div class="profile-container">
                 <div class="profile-content">
                     <div class="meu-perfil perfil-item" id="meu-perfil">
-                        <h1>Meu perfil</h1>
+                        <div class="user-info image-container">
+                            <i class="fa fa-user fa-5x"></i>
+                        </div>
+                        <div class="user-info data-container">
+                            <div class="user-detail">
+                                <h1>
+                                    {{ user.username }}
+                                </h1>
+                            </div>
+                            <div class="user-detail">
+                                <i class="fa fa-calendar"></i>
+                                <span>Membro desde: {{ user.created }}</span>
+                            </div>
+                            <div class="user-detail">
+                                <i class="fa fa-info-circle"></i>
+                                <span>Última visita: {{ user.lastAccess }}</span>
+                            </div>
+                            
+                            <div class="user-detail">
+                                <i class="fa fa-id-card-o"></i>
+                                <span>CPF: {{ user.cpf }}</span>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="meus-chamados perfil-item" style="display: none;" id="meus-chamados">

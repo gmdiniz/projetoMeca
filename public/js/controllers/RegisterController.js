@@ -11,6 +11,13 @@ meca_app.controller('RegisterController', function ($scope, $http, $location) {
         })
         request.then(function (result) {
             console.log(result);
+            alert("Usuário cadastrado com sucesso");
+            if (result.data.status == '200' && result.data.statusText == 'OK') {
+                alert("Cadastrado com sucesso")
+                $location.path('/login'); 
+            } else {
+                alert('Cadastro não sucedido');
+            }
         })
     
     };
