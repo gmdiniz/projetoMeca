@@ -4,7 +4,7 @@ html{
 }
 
 body {
-    background-color: #f5f5f5;
+    background-color: #FFFFFF;
     color: #2c2c2c;
     width: 100%;
     height: 100%;
@@ -23,7 +23,7 @@ input {
     font-size: 14px;
     line-height: 18px;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     width: 100%;
     height: 40px;
     box-sizing: border-box;
@@ -66,11 +66,11 @@ a:hover {
 
 .primary-button{
     box-shadow: 0px 1px 0px 0px #f0f7fa;
-	background: linear-gradient(to bottom, #781AEF 5%, #781AEF 100%);
-	background-color: #781AEF;
-    border-radius: 5px;
+	background: linear-gradient(to bottom, #3C6E71 5%, #3C6E71 100%);
+	background-color: #3C6E71;
+    border-radius: 15px;
     border: none;
-	border: 1px solid #781AEF;
+	border: 1px solid #3C6E71;
 	display: inline-block;
 	cursor: pointer;
 	color: #ffffff;
@@ -105,8 +105,13 @@ button i {
 }
 
 .primary-button:hover {
-    background:linear-gradient(to bottom, #42068f 5%, #42068f 100%);
-	background-color:#824ec5;
+    background:linear-gradient(to bottom, #345658 5%, #345658 100%);
+	background-color:#345658;
+}
+
+.padding{
+    padding-bottom: 8px;
+    color: #284B63;
 }
 
 

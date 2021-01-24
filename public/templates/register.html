@@ -8,24 +8,26 @@
     <body>
         <div class="register_body">     
             <div class="register_container">
+                <div class="car-icon">
+                    <i class="fa fa-car fa-5x " aria-hidden="true"></i>     
+                </div>
 
                 <div class="register_form">
 
-                    
-                    <div class="google_integration">
-                        <button class="default-button"><i class="fa fa-google"></i>Cadastrar-se com Google</button>
-                    </div>
-
                     <div class="register_item">
-                        <h2>Nome de Exibição</h2>
+                        <h2 class="padding">Nome de Exibição</h2>
                         <input required type="text" placeholder="Insira seu nome de usuario" name="nome" ng-model="registerData.nome" >
                     </div>
                     <div class="register_item">
-                        <h2 for="">E-mail</h2>
+                        <h2 class="padding">CPF</h2>
+                        <input required type="text" placeholder="Insira seu CPF" name="cpf" ng-model="registerData.cpf" >
+                    </div>
+                    <div class="register_item">
+                        <h2 for="" class="padding">E-mail</h2>
                         <input required type="email" name="email" pattern="[^ @]*@[^ @]*" placeholder="Insira seu email" ng-model="registerData.email">
                     </div>
                     <div class="register_item">
-                        <h2 for="">Senha</h2>
+                        <h2 for="" class="padding">Senha</h2>
                         <input required type="password" placeholder="Insira sua senha" name="senha" ng-model="registerData.senha"> 
                     </div>
                     <div class="register_item">

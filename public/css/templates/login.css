@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     height: 100%;
-    background-color: #C4C4C4;
+    background-color: #353535;
 }
 
 .login_container {
@@ -11,8 +11,8 @@
     height: 100%;
     display: flex;
     place-content: center;
-    background-color: #E7E7E7;
-    box-shadow: 0 2px 2px #E7E7E7;
+    background-color: #D9D9D9;
+    box-shadow: 0 2px 2px #D9D9D9;
     flex-direction: column;
 }
 
@@ -43,6 +43,15 @@
     justify-content: space-between;
 }
 
+.car-icon{
+    align-self: center;
+    margin-bottom: 100px;
+}
+
+.car-icon i{
+    color:#284B63;
+}
+
 .login_item input{
-    background: #C4C4C4;
+    background: #ffffff;
 }
