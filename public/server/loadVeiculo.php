@@ -12,8 +12,18 @@
     $response = []; 
     $input = file_get_contents("php://input");
 
-    $query = "SELECT * FROM publicacao;";
+    try {
+		$_POST = json_decode($input, true);
+	} catch (Exception $e) {
+		echo $e->getMessage();
+		return;
+	}
+
+    $userId = $_POST['userId'];
+
+    $query = "SELECT * FROM veiculo WHERE fk_usuario ='$userId';";
     $result = mysqli_query($con, $query);
+
 
     if(mysqli_num_rows($result) > 0) {
         $response = mysqli_fetch_all($result, MYSQLI_ASSOC);

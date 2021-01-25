@@ -82,17 +82,17 @@
                     <div style="padding: 16px;height: 90%;">
                         <form action="" class="modal-form" onsubmit="event.preventDefault()">
                             <label class="label-item">Tipo</label>
-                            <input class="form-item" required type="text" placeholder="Insira o tipo da manutenção" name="tipo" ng-model="registerData.nome" >
+                            <input class="form-item" required type="text" placeholder="Insira o tipo da manutenção" name="tipo" ng-model="registerData.tipo" >
                             
                             <label class="label-item">Veículo</label>
-                                <select class="select-item" name="cars" id="cars">
-                                </select>
+                            <select class="select-item" ng-model="registerData.carro" ng-options="car.modelo for car in loadedVeiculos" name="cars" id="cars">
+                            </select>
 
                             <label class="label-item">Valor</label>
-                            <input class="form-item" required type="text" placeholder="Insira o valor da manutenção" name="valor" ng-model="registerData.cpf" >
+                            <input class="form-item" required type="text" placeholder="Insira o valor da manutenção" name="valor" ng-model="registerData.valor" >
 
                             <label for="" class="label-item">Descrição</label>
-                            <input class="form-item" required type="text" name="descricao" placeholder="Insira a descricao do serviço" ng-model="registerData.email" cols="40" rows="5">
+                            <input class="form-item" required type="text" name="descricao" placeholder="Insira a descricao do serviço" ng-model="registerData.descricao" cols="40" rows="5">
 
                             <button class="default-button plus form-item" ng-click = "cadastrarManutencao()" name= "cadastrarManutencao" type="submit">Pronto</button> 
                         </form>
@@ -104,7 +104,6 @@
                     <a href="" ng-click="login()">Entrar</a>
                 </div>
 
-         
             </div>
             <script src="js/modal.js"></script>
 

@@ -2,12 +2,35 @@ meca_app.controller('ProfileController', function ($scope, $http, UserModel, $lo
     
     $scope.veiculoData = {};
     $scope.chamadoData = {};
+    $scope.manutencaoData = {};
+    $scope.registerData = {};
 
+    $scope.user = UserModel.getUserData();
 
     $scope.logout = function () {
         UserModel.clearData();
         location.reload();
     }
+
+    $scope.loadVeiculos = function () {
+        var request = $http({
+            url: 'http://localhost/projetoMeca/public/server/loadVeiculo.php',
+            method: "post",
+            data: {
+                userId: $scope.user.id
+            },            
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        });
+        request.then(function (response) {
+            if (response.status == '200') {
+                $scope.loadedVeiculos = response.data;
+            } else {
+                alert('Ocorreu um erro ao carregar seus veículos.');
+            }
+        })
+    }
+
+    $scope.loadVeiculos();
 
     $scope.cadastrarVeiculo = function () {
         var request = $http({
@@ -26,7 +49,7 @@ meca_app.controller('ProfileController', function ($scope, $http, UserModel, $lo
         request.then(function (response) {
             if (response.data.status == 'ok') {
                 alert('Veículo cadastrado');
-                veiculoModal.style.display = "block";
+                veiculoModal.style.display = "none";
             } else {
                 alert('Ocorreu um erro ao cadastrar o Veículo. \nVerifique os dados e tente novamente!');
             }
@@ -34,23 +57,27 @@ meca_app.controller('ProfileController', function ($scope, $http, UserModel, $lo
     }
 
     $scope.cadastrarManutencao = function () {
-
         var request = $http({
-            url: 'http://localhost/projetoForum/public/server/cadastroManutencao.php',
+            url: 'http://localhost/projetoMeca/public/server/cadastroManutencao.php',
             method: "post",
-            data: $scope.chamadoData,
+            data: {
+                tipo: $scope.registerData.tipo,
+                valor: $scope.registerData.valor,
+                descricao: $scope.registerData.descricao,
+                carId: $scope.registerData.carro.id_veiculo,
+                userId: $scope.user.id
+            },
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         });
         request.then(function (response) {
             if (response.data.status == 'ok') {
                 alert('Manutencao OK');
+                $scope.manutencaoData = response.data;
             } else {
                 alert('Ocorreu um erro ao cadastrar a manutenção. \nVerifique os dados e tente novamente!');
             }
         })
     }
-
-    $scope.user = UserModel.getUserData();
     
     var veiculoModal = document.getElementById("veiculoModal");
     var chamadoModal = document.getElementById("chamadoModal");

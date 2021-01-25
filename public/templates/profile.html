@@ -158,19 +158,19 @@
                 <div style="padding: 16px;height: 90%;">
                     <form action="" class="modal-form" onsubmit="event.preventDefault()">
                         <label class="label-item">Tipo</label>
-                        <input class="form-item" required type="text" placeholder="Insira o tipo da manutenção" name="tipo" ng-model="registerData.nome" >
+                        <input class="form-item" required type="text" placeholder="Insira o tipo da manutenção" name="tipo" ng-model="registerData.tipo" >
                         
                         <label class="label-item">Veículo</label>
-                        <select class="select-item" name="cars" id="cars">
-                        </select>
+                        <select class="select-item" ng-model="registerData.carro" ng-options="car.modelo for car in loadedVeiculos" name="cars" id="cars">
+                        </select
 
                         <label class="label-item">Valor</label>
-                        <input class="form-item" required type="text" placeholder="Insira o valor da manutenção" name="valor" ng-model="registerData.cpf" >
+                        <input class="form-item" required type="text" placeholder="Insira o valor da manutenção" name="valor" ng-model="registerData.valor" >
 
                         <label for="" class="label-item">Descrição</label>
-                        <input class="form-item" required type="text" name="descricao" placeholder="Insira a descricao do serviço" ng-model="registerData.email" cols="40" rows="5">
+                        <input class="form-item" required type="text" name="descricao" placeholder="Insira a descricao do serviço" ng-model="registerData.descricao" cols="40" rows="5">
 
-                        <button class="default-button plus form-item" ng-click = "createChamado()" name= "createChamado" type="submit">Pronto</button> 
+                        <button class="default-button plus form-item" ng-click = "cadastrarManutencao()" name= "createChamado" type="submit">Pronto</button> 
                     </form>
                 </div>
             </div>
@@ -220,22 +220,42 @@
                     </div>
                     
                     <div class="meus-chamados perfil-item" style="display: none;" id="meus-chamados">
-                        <h1>Meus chamados</h1>
-                            <div class="user-info data-container">
+                        <div class="user-info data-container" ng-repeat="manut in manutencaoData">
+                            <h1>Meus chamados</h1>
                             <div class="user-detail">
-                                <i class="fa fa-calendar"></i>
-                                <span>Ultimo chamado: {{ user.created }}</span>
+                                <h1>
+                                    {{ manut.tipo }}
+                                </h1>
                             </div>
                             <div class="user-detail">
-                                <i class="fa fa-info-circle"></i>
-                                <span>Chamados: {{ user.lastAccess }}</span>
+                                <i class="fa fa-money"></i>
+                                <span>{{ manut.valor }}</span>
                             </div>
-                            
+                            <div class="user-detail">
+                                <i class="fa fa-table"></i>
+                                <span>{{ manut.descricao }}</span>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="meus-veiculos perfil-item" style="display: none;" id="meus-veiculos">
-                        <h1>Meus veículos</h1>
+                        <div class="user-info data-container" ng-repeat="veiculo in loadedVeiculos">
+                            <div class="user-detail">
+                                <h1>
+                                    {{ veiculo.modelo }}
+                                </h1>
+                            </div>
+                            <div class="user-detail">
+                                <i class="fa fa-car"></i>
+                                <span>{{ veiculo.marca }}</span>
+                                <span>{{ veiculo.placa }}</span>
+                            </div>
+                            <div class="user-detail">
+                                <i class="fa fa-cogs"></i>
+                                <span>{{ veiculo.cor }}</span>
+                                <span>{{ veiculo.ano }}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
