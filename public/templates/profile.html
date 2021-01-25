@@ -162,10 +162,6 @@
                         
                         <label class="label-item">Veículo</label>
                         <select class="select-item" name="cars" id="cars">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
                         </select>
 
                         <label class="label-item">Valor</label>
@@ -225,6 +221,17 @@
                     
                     <div class="meus-chamados perfil-item" style="display: none;" id="meus-chamados">
                         <h1>Meus chamados</h1>
+                            <div class="user-info data-container">
+                            <div class="user-detail">
+                                <i class="fa fa-calendar"></i>
+                                <span>Ultimo chamado: {{ user.created }}</span>
+                            </div>
+                            <div class="user-detail">
+                                <i class="fa fa-info-circle"></i>
+                                <span>Chamados: {{ user.lastAccess }}</span>
+                            </div>
+                            
+                        </div>
                     </div>
                     
                     <div class="meus-veiculos perfil-item" style="display: none;" id="meus-veiculos">

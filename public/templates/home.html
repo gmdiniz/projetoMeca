@@ -12,12 +12,6 @@
                 Auto-Manutenção
             </div>
             <div class="navigation">
-                <div class="button-item login-button btplus">
-                        <button class="default-button plus" id="myBtn">
-                            <i class="fa fa-plus"></i>
-                            Novo chamado
-                        </button>
-                </div>
                 <div class="nav-buttons" ng-hide="loggedUser">
                     <div class="button-item login-button">
                         <button ng-click="login()" class="default-button">
@@ -33,6 +27,12 @@
                     </div>
                 </div>
                 <div class="nav-user" ng-hide="!loggedUser">
+                    <div class="button-item login-button btplus">
+                        <button class="default-button plus" id="myBtn">
+                            <i class="fa fa-plus"></i>
+                            Novo chamado
+                        </button>
+                    </div>
                     <div class="button-item">
                         <button ng-click="meuPerfil()" class="default-button">
                             <i class="fa fa-user"></i>
@@ -85,12 +85,8 @@
                             <input class="form-item" required type="text" placeholder="Insira o tipo da manutenção" name="tipo" ng-model="registerData.nome" >
                             
                             <label class="label-item">Veículo</label>
-                            <select class="select-item" name="cars" id="cars">
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="mercedes">Mercedes</option>
-                                <option value="audi">Audi</option>
-                            </select>
+                                <select class="select-item" name="cars" id="cars">
+                                </select>
 
                             <label class="label-item">Valor</label>
                             <input class="form-item" required type="text" placeholder="Insira o valor da manutenção" name="valor" ng-model="registerData.cpf" >
@@ -98,7 +94,7 @@
                             <label for="" class="label-item">Descrição</label>
                             <input class="form-item" required type="text" name="descricao" placeholder="Insira a descricao do serviço" ng-model="registerData.email" cols="40" rows="5">
 
-                            <button class="default-button plus form-item" ng-click = "createChamado()" name= "createChamado" type="submit">Pronto</button> 
+                            <button class="default-button plus form-item" ng-click = "cadastrarManutencao()" name= "cadastrarManutencao" type="submit">Pronto</button> 
                         </form>
                     </div>
                 </div>

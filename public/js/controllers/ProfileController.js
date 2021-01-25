@@ -1,6 +1,8 @@
-meca_app.controller('ProfileController', function ($scope, UserModel, $location) {
+meca_app.controller('ProfileController', function ($scope, $http, UserModel, $location) {
     
     $scope.veiculoData = {};
+    $scope.chamadoData = {};
+
 
     $scope.logout = function () {
         UserModel.clearData();
@@ -8,8 +10,6 @@ meca_app.controller('ProfileController', function ($scope, UserModel, $location)
     }
 
     $scope.cadastrarVeiculo = function () {
-        if (UserModel.isUserLoggedIn()) var userId = UserModel.getID();
-        else userId = 0;
 
         var request = $http({
             url: 'http://localhost/projetoForum/public/server/cadastroVeiculo.php',
@@ -22,6 +22,23 @@ meca_app.controller('ProfileController', function ($scope, UserModel, $location)
                 alert('Veículo cadastrado');
             } else {
                 alert('Ocorreu um erro ao cadastrar o Veículo. \nVerifique os dados e tente novamente!');
+            }
+        })
+    }
+
+    $scope.cadastrarManutencao = function () {
+
+        var request = $http({
+            url: 'http://localhost/projetoForum/public/server/cadastroManutencao.php',
+            method: "post",
+            data: $scope.chamadoData,
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        });
+        request.then(function (response) {
+            if (response.data.status == 'ok') {
+                alert('Manutencao OK');
+            } else {
+                alert('Ocorreu um erro ao cadastrar a manutenção. \nVerifique os dados e tente novamente!');
             }
         })
     }
