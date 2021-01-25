@@ -1,4 +1,4 @@
-meca_app.controller('ProfileController', function ($scope, UserModel, $location) {
+meca_app.controller('ProfileController', function ($scope, UserModel, $location, $http) {
     
     $scope.veiculoData = {};
 
@@ -8,18 +8,23 @@ meca_app.controller('ProfileController', function ($scope, UserModel, $location)
     }
 
     $scope.cadastrarVeiculo = function () {
-        if (UserModel.isUserLoggedIn()) var userId = UserModel.getID();
-        else userId = 0;
-
         var request = $http({
-            url: 'http://localhost/projetoForum/public/server/cadastroVeiculo.php',
+            url: 'http://localhost/projetoMeca/public/server/cadastroVeiculo.php',
             method: "post",
-            data: $scope.veiculoData,
+            data: {
+                modelo: $scope.veiculoData['modelo'],
+                marca: $scope.veiculoData['marca'],
+                placa: $scope.veiculoData['placa'],
+                cor: $scope.veiculoData['cor'],
+                ano: $scope.veiculoData['ano'],
+                userId: $scope.user.id
+            },            
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         });
         request.then(function (response) {
             if (response.data.status == 'ok') {
                 alert('Veículo cadastrado');
+                veiculoModal.style.display = "block";
             } else {
                 alert('Ocorreu um erro ao cadastrar o Veículo. \nVerifique os dados e tente novamente!');
             }
