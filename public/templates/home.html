@@ -74,39 +74,32 @@
             <div id="myModal" class="modal">
                 <!-- Modal content -->
                 <div class="modal-content">
-                    <span class="close">&times;</span>
-                   
-                    <p><i class="fa fa-plus plusIc"></i>Novo chamado</p>
+                    <header>
+                        <p>Novo chamado</p>
+                        <span class="close">&times;</span>
+                    </header>
 
-                    <div class="modal_container">
-                        <div class="modal_item">
-                            <h2 class="paddingM">Tipo</h2>
-                            <input required type="text" placeholder="Insira o tipo da manutenção" name="tipo" ng-model="registerData.nome" >
-                        </div>
-
-                        <div class="modal_item">
-                            <h2 class="paddingM">Veículo</h2>
-                            <select name="cars" id="cars">
+                    <div style="padding: 16px;height: 90%;">
+                        <form action="" class="modal-form" onsubmit="event.preventDefault()">
+                            <label class="label-item">Tipo</label>
+                            <input class="form-item" required type="text" placeholder="Insira o tipo da manutenção" name="tipo" ng-model="registerData.nome" >
+                            
+                            <label class="label-item">Veículo</label>
+                            <select class="select-item" name="cars" id="cars">
                                 <option value="volvo">Volvo</option>
                                 <option value="saab">Saab</option>
                                 <option value="mercedes">Mercedes</option>
                                 <option value="audi">Audi</option>
                             </select>
-                        </div>
-                        
-                        <div class="modal_item">
-                            <h2 class="paddingM">Valor</h2>
-                            <input required type="text" placeholder="Insira o valor desejado de manutenção" name="valor" ng-model="registerData.cpf" >
-                        </div>
 
-                        <div class="modal_item">
-                            <h2 for="" class="paddingM">Descrição</h2>
-                            <input required type="text" name="descricao" placeholder="Insira a descricao do serviço" ng-model="registerData.email" cols="40" rows="5">
-                        </div>
+                            <label class="label-item">Valor</label>
+                            <input class="form-item" required type="text" placeholder="Insira o valor da manutenção" name="valor" ng-model="registerData.cpf" >
 
-                        <div class="modal_item">
-                            <button class="primary-button" ng-click = "register()" name= "register" type="submit">Pronto</button> 
-                        </div>  
+                            <label for="" class="label-item">Descrição</label>
+                            <input class="form-item" required type="text" name="descricao" placeholder="Insira a descricao do serviço" ng-model="registerData.email" cols="40" rows="5">
+
+                            <button class="default-button plus form-item" ng-click = "createChamado()" name= "createChamado" type="submit">Pronto</button> 
+                        </form>
                     </div>
                 </div>
 

@@ -15,13 +15,13 @@
                 <div class="nav-buttons" ng-hide="loggedUser">
                 </div>
                 <div class="button-item login-button btplus">
-                    <button class="default-button plus">
+                    <button id="chamadoBtn" class="default-button plus">
                         <i class="fa fa-plus"></i>
                         Novo chamado
                     </button>
                 </div>
                 <div class="button-item login-button btplus">
-                    <button id="myBtn" class="default-button plus">
+                    <button id="veiculoBtn" class="default-button plus">
                         <i class="fa fa-plus"></i>
                         Cadastrar novo veículo
                     </button>
@@ -37,12 +37,12 @@
             </div>
         </div>
 
-        <div id="myModal" class="modal">
+        <div id="veiculoModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
                 <header>
                     <p>Cadastrar novo veículo</p>
-                    <span class="close">&times;</span>
+                    <span class="close" id="closeVeiculo">&times;</span>
                 </header>
 
                 <div style="padding: 16px;height: 90%;">
@@ -147,6 +147,46 @@
             </div>
         </div>
     
+        <div id="chamadoModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <header>
+                    <p>Novo chamado</p>
+                    <span class="close" id="closeChamado">&times;</span>
+                </header>
+
+                <div style="padding: 16px;height: 90%;">
+                    <form action="" class="modal-form" onsubmit="event.preventDefault()">
+                        <label class="label-item">Tipo</label>
+                        <input class="form-item" required type="text" placeholder="Insira o tipo da manutenção" name="tipo" ng-model="registerData.nome" >
+                        
+                        <label class="label-item">Veículo</label>
+                        <select class="select-item" name="cars" id="cars">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="mercedes">Mercedes</option>
+                            <option value="audi">Audi</option>
+                        </select>
+
+                        <label class="label-item">Valor</label>
+                        <input class="form-item" required type="text" placeholder="Insira o valor da manutenção" name="valor" ng-model="registerData.cpf" >
+
+                        <label for="" class="label-item">Descrição</label>
+                        <input class="form-item" required type="text" name="descricao" placeholder="Insira a descricao do serviço" ng-model="registerData.email" cols="40" rows="5">
+
+                        <button class="default-button plus form-item" ng-click = "createChamado()" name= "createChamado" type="submit">Pronto</button> 
+                    </form>
+                </div>
+            </div>
+
+            <div class="register_footer">
+                <h3>Já tem uma conta?</h3>
+                <a href="" ng-click="login()">Entrar</a>
+            </div>
+
+     
+        </div>
+
         <div class="profile-content">
 
             <div class="menu">
