@@ -3,7 +3,7 @@ meca_app.service('UserModel', function () {
     var loggedin = false;
 
     this.getUserData = function () {
-        return userData;
+        return JSON.parse(localStorage.getItem('login'));
     };
     
     this.isUserLoggedIn = function () {
@@ -21,7 +21,7 @@ meca_app.service('UserModel', function () {
             'email': data.email,
             'id': data.id,
             'created': data.created,
-            'username': data.username,
+            'username': data.nome ? data.nome : data.username,
             'cpf': data.cpf,
             'loggedin': true,
             'lastAccess': new Date(Date.now())

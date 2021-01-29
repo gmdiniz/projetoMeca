@@ -58,56 +58,6 @@
                         <label class="label-item" for="">Ano</label>
                         <select id="ano" ng-model="veiculoData.ano" class="select-item" required name="Ano">
                             <option value="0">Ano</option>
-                            <option value="1940">1940</option>
-                            <option value="1941">1941</option>
-                            <option value="1942">1942</option>
-                            <option value="1943">1943</option>
-                            <option value="1944">1944</option>
-                            <option value="1945">1945</option>
-                            <option value="1946">1946</option>
-                            <option value="1947">1947</option>
-                            <option value="1948">1948</option>
-                            <option value="1949">1949</option>
-                            <option value="1950">1950</option>
-                            <option value="1951">1951</option>
-                            <option value="1952">1952</option>
-                            <option value="1953">1953</option>
-                            <option value="1954">1954</option>
-                            <option value="1955">1955</option>
-                            <option value="1956">1956</option>
-                            <option value="1957">1957</option>
-                            <option value="1958">1958</option>
-                            <option value="1959">1959</option>
-                            <option value="1960">1960</option>
-                            <option value="1961">1961</option>
-                            <option value="1962">1962</option>
-                            <option value="1963">1963</option>
-                            <option value="1964">1964</option>
-                            <option value="1965">1965</option>
-                            <option value="1966">1966</option>
-                            <option value="1967">1967</option>
-                            <option value="1968">1968</option>
-                            <option value="1969">1969</option>
-                            <option value="1970">1970</option>
-                            <option value="1971">1971</option>
-                            <option value="1972">1972</option>
-                            <option value="1973">1973</option>
-                            <option value="1974">1974</option>
-                            <option value="1975">1975</option>
-                            <option value="1976">1976</option>
-                            <option value="1977">1977</option>
-                            <option value="1978">1978</option>
-                            <option value="1979">1979</option>
-                            <option value="1980">1980</option>
-                            <option value="1981">1981</option>
-                            <option value="1982">1982</option>
-                            <option value="1983">1983</option>
-                            <option value="1984">1984</option>
-                            <option value="1985">1985</option>
-                            <option value="1986">1986</option>
-                            <option value="1987">1987</option>
-                            <option value="1988">1988</option>
-                            <option value="1989">1989</option>
                             <option value="1990">1990</option>
                             <option value="1991">1991</option>
                             <option value="1992">1992</option>
@@ -197,6 +147,41 @@
                         <div class="user-info image-container">
                             <i class="fa fa-user fa-5x"></i>
                         </div>
+
+                        <div id="editUserModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <header>
+                                    <p>Editar chamado</p>
+                                    <span id="closeUserModal" class="close">&times;</span>
+                                </header>
+                                <div style="padding: 16px;height: 90%;">
+                                    <form action="" class="modal-form" onsubmit="event.preventDefault()">
+                                        <label class="label-item">Email</label>
+                                        <input class="form-item" required type="email" placeholder="{{user.email}}" name="tipo" ng-model="pendingUserToEdit.email" >
+                                        
+                                        <label class="label-item">Nome</label>
+                                        <input class="form-item" required type="text" placeholder="{{user.username}}" name="valor" ng-model="pendingUserToEdit.nome" >
+
+                                        <label for="" class="label-item">CPF</label>
+                                        <input class="form-item" required type="text" name="descricao" placeholder="{{user.cpf}}" ng-model="pendingUserToEdit.cpf" cols="40" rows="5">
+                
+                                        <button class="default-button plus form-item" ng-click = "editarUsuario(user, pendingUserToEdit)" type="submit">Pronto</button> 
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="manage">
+                            <div class="alter-icon manage-menu-item" ng-click="loadEditUserModal()">
+                                <i class="fa fa-pencil"></i>
+                            </div>
+                            <div class="delete-icon manage-menu-item" ng-click="deleteUser(user)">
+                                <i class="fa fa-trash"></i>
+                            </div>
+                        </div>
                         <div class="user-info data-container">
                             <div class="user-detail">
                                 <h1>
@@ -220,40 +205,150 @@
                     </div>
                     
                     <div class="meus-chamados perfil-item" style="display: none;" id="meus-chamados">
-                        <div class="user-info data-container" ng-repeat="manut in manutencaoData">
-                            <h1>Meus chamados</h1>
-                            <div class="user-detail">
-                                <h1>
-                                    {{ manut.tipo }}
-                                </h1>
+                        <h1 style="text-align: center;">Meus chamados</h1>
+                        <div class="manut-info data-container" ng-repeat="manut in loadedManut">
+                            <div class="manage">
+
+                                <!-- The Modal -->
+                                <div id="editManutModal" class="modal">
+
+                                    <!-- Modal content -->
+                                    <div class="modal-content">
+                                        <header>
+                                            <p>Editar chamado</p>
+                                            <span id="closeManutModal" class="close">&times;</span>
+                                        </header>
+                                        <div style="padding: 16px;height: 90%;">
+                                            <form action="" class="modal-form" onsubmit="event.preventDefault()">
+                                                <label class="label-item">Tipo</label>
+                                                <input class="form-item" required type="text" placeholder="{{actualOpenedManut.tipo}}" name="tipo" ng-model="pendingManutToEdit.tipo" >
+                                                
+                                                <label class="label-item">Valor</label>
+                                                <input class="form-item" required type="text" placeholder="{{actualOpenedManut.valor}}" name="valor" ng-model="pendingManutToEdit.valor" >
+
+                                                <label for="" class="label-item">Descrição</label>
+                                                <input class="form-item" required type="text" name="descricao" placeholder="{{actualOpenedManut.descricao}}" ng-model="pendingManutToEdit.descricao" cols="40" rows="5">
+                        
+                                                <button class="default-button plus form-item" ng-click = "editarManutencao(actualOpenedManut, pendingManutToEdit)" name= "editChamado" type="submit">Pronto</button> 
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="alter-icon manage-menu-item" ng-click="loadEditManutModal(manut)">
+                                    <i class="fa fa-pencil"></i>
+                                </div>
+                                <div class="delete-icon manage-menu-item" ng-click="deleteManut(manut)">
+                                    <i class="fa fa-trash"></i>
+                                </div>
                             </div>
-                            <div class="user-detail">
-                                <i class="fa fa-money"></i>
-                                <span>{{ manut.valor }}</span>
-                            </div>
-                            <div class="user-detail">
-                                <i class="fa fa-table"></i>
-                                <span>{{ manut.descricao }}</span>
+                            <div class="repeat-manut">
+                                <div class="user-detail">
+                                    <h1>
+                                        {{ manut.tipo }}
+                                    </h1>
+                                </div>
+                                <div class="user-detail">
+                                    <i class="fa fa-money"></i>
+                                    <span>{{ manut.valor }}</span>
+                                </div>
+                                <div class="user-detail">
+                                    <i class="fa fa-table"></i>
+                                    <span>{{ manut.descricao }}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="meus-veiculos perfil-item" style="display: none;" id="meus-veiculos">
-                        <div class="user-info data-container" ng-repeat="veiculo in loadedVeiculos">
-                            <div class="user-detail">
-                                <h1>
-                                    {{ veiculo.modelo }}
-                                </h1>
+                        <h1 style="text-align: center;">Meus veículos</h1>
+                        <div class="car-info data-container" ng-repeat="veiculo in loadedVeiculos">
+                            <div class="manage">
+                                
+                                <div id="editCarModal" class="modal">
+
+                                    <!-- Modal content -->
+                                    <div class="modal-content">
+                                        <header>
+                                            <p>Editar veículo</p>
+                                            <span id="closeCarModal" class="close">&times;</span>
+                                        </header>
+                                        <div style="padding: 16px;height: 90%;">
+                                            <form class="modal-form" onsubmit="event.preventDefault()">
+                                                <label class="label-item" for="">Modelo</label>
+                                                <input class="form-item" type="text" ng-model="pendingCarToEdit.modelo" required placeholder="{{actualOpenedCar.modelo}}">
+                                                <label class="label-item" for="">Marca</label>
+                                                <input class="form-item" type="text" ng-model="pendingCarToEdit.marca" required placeholder="{{actualOpenedCar.marca}}">
+                                                <label class="label-item" for="">Placa</label>
+                                                <input class="form-item" type="text" ng-model="pendingCarToEdit.placa" required placeholder="{{actualOpenedCar.placa}}">
+                                                <label class="label-item" for="">Cor</label>
+                                                <input class="form-item" type="text" ng-model="pendingCarToEdit.cor" required placeholder="{{actualOpenedCar.cor}}">
+                                                <label class="label-item" for="">Ano</label>
+                                                <select id="ano" ng-model="pendingCarToEdit.ano" class="select-item" required name="Ano">
+                                                    <option value="0">Ano</option>
+                                                    <option value="1991">1991</option>
+                                                    <option value="1992">1992</option>
+                                                    <option value="1993">1993</option>
+                                                    <option value="1994">1994</option>
+                                                    <option value="1995">1995</option>
+                                                    <option value="1996">1996</option>
+                                                    <option value="1997">1997</option>
+                                                    <option value="1998">1998</option>
+                                                    <option value="1999">1999</option>
+                                                    <option value="2000">2000</option>
+                                                    <option value="2001">2001</option>
+                                                    <option value="2002">2002</option>
+                                                    <option value="2003">2003</option>
+                                                    <option value="2004">2004</option>
+                                                    <option value="2005">2005</option>
+                                                    <option value="2006">2006</option>
+                                                    <option value="2007">2007</option>
+                                                    <option value="2008">2008</option>
+                                                    <option value="2009">2009</option>
+                                                    <option value="2010">2010</option>
+                                                    <option value="2011">2011</option>
+                                                    <option value="2012">2012</option>
+                                                    <option value="2013">2013</option>
+                                                    <option value="2014">2014</option>
+                                                    <option value="2015">2015</option>
+                                                    <option value="2016">2016</option>
+                                                    <option value="2017">2017</option>
+                                                    <option value="2018">2018</option>
+                                                    <option value="2019">2019</option>
+                                                    <option value="2020">2020</option>
+                                                    <option value="2021">2021</option>
+                                                </select>
+                                                <button class="default-button plus form-item" ng-click = "editarVeiculo(actualOpenedCar, pendingCarToEdit)" name= "editCar" type="submit">Pronto</button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="alter-icon manage-menu-item" ng-click="loadEditCarModal(veiculo)">
+                                    <i class="fa fa-pencil"></i>
+                                </div>
+                                <div class="delete-icon manage-menu-item" ng-click="deleteVeiculo(veiculo)">
+                                    <i class="fa fa-trash"></i>
+                                </div>
                             </div>
-                            <div class="user-detail">
-                                <i class="fa fa-car"></i>
-                                <span>{{ veiculo.marca }}</span>
-                                <span>{{ veiculo.placa }}</span>
-                            </div>
-                            <div class="user-detail">
-                                <i class="fa fa-cogs"></i>
-                                <span>{{ veiculo.cor }}</span>
-                                <span>{{ veiculo.ano }}</span>
+                            <div class="repeat-car">
+                                <div class="user-detail">
+                                    <h1>
+                                        {{ veiculo.modelo }}
+                                    </h1>
+                                </div>
+                                <div class="user-detail">
+                                    <i class="fa fa-car"></i>
+                                    <span>{{ veiculo.marca }}</span>
+                                    <span>{{ veiculo.placa }}</span>
+                                </div>
+                                <div class="user-detail">
+                                    <i class="fa fa-cogs"></i>
+                                    <span>{{ veiculo.cor }}</span>
+                                    <span>{{ veiculo.ano }}</span>
+                                </div>
                             </div>
                         </div>
                     </div>

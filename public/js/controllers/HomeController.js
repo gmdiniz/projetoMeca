@@ -61,6 +61,8 @@ meca_app.controller('HomeController', function ($scope, $http, UserModel, $locat
         })
     }
 
-    $scope.loadVeiculos();
+    if ($scope.user) {   
+        $scope.loadVeiculos();
+    }
 
 });

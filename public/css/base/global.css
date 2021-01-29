@@ -185,7 +185,8 @@ button i {
 
 .modal-form {
     height: 100%;
-    white-space: pre-wrap;
+    white-space: pre-line;
+    text-align: center;
 }
 
 .form-item {

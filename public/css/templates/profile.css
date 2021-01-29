@@ -32,7 +32,7 @@
 
 .profile-container {
     width: 80%;
-    padding: 100px 200px;
+    padding: 100px 100px;
 }
 
 .profile-content {
@@ -49,12 +49,32 @@
 
 .image-container {
     width: 30%;
+    text-align: center;
 }
 
 .user-detail {
     margin-bottom: 16px;
 }
 
+.manut-info {
+    margin: 44px 0;
+    display: flex;
+}
+
+.car-info {
+    margin: 44px 0;
+    display: flex;
+}
+
 .meu-perfil {
     display: flex;
+}
+
+.manage {
+    margin: 0 24px;
+    display: flex;
+}
+
+.manage-menu-item {
+    margin: 0 8px;
 }
